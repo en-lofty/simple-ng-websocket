@@ -121,27 +121,27 @@ export class SimpleNgWebSocket extends EventEmitter {
 	emit(event: 'close', ev: CloseEvent, ngws: SimpleNgWebSocket): boolean;
 	emit(event: 'error', ev: Event, ngws: SimpleNgWebSocket): boolean;
 	emit(event: string | symbol, ...args: any[]): boolean {
-		return super.emit(JSON.stringy(event), ...args);
+		return super.emit(JSON.stringify(event), ...args);
 	}
 	on(event: 'open', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
 	on(event: 'message', listener: (ev: MessageEvent, ngws: SimpleNgWebSocket) => void): this;
 	on(event: 'close', listener: (ev: CloseEvent, ngws: SimpleNgWebSocket) => void): this;
 	on(event: 'error', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
 	on(event: string | symbol, listener: (...args: any[]) => void): this {
-		return super.on(JSON.stringy(event), listener);
+		return super.on(JSON.stringify(event), listener);
 	}
 	once(event: 'open', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
 	once(event: 'message', listener: (ev: MessageEvent, ngws: SimpleNgWebSocket) => void): this;
 	once(event: 'close', listener: (ev: CloseEvent, ngws: SimpleNgWebSocket) => void): this;
 	once(event: 'error', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
 	once(event: string | symbol, listener: (...args: any[]) => void): this {
-		return super.once(JSON.stringy(event), listener);
+		return super.once(JSON.stringify(event), listener);
 	}
 	removeListener(event: 'open', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
 	removeListener(event: 'message', listener: (ev: MessageEvent, ngws: SimpleNgWebSocket) => void): this;
 	removeListener(event: 'close', listener: (ev: CloseEvent, ngws: SimpleNgWebSocket) => void): this;
 	removeListener(event: 'error', listener: (ev: Event, ngws: SimpleNgWebSocket) => void): this;
 	removeListener(event: string | symbol, listener: (...args: any[]) => void): this {
-		return super.removeListener(JSON.stringy(event), listener);
+		return super.removeListener(JSON.stringify(event), listener);
 	}
 }
